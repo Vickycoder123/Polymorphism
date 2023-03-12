@@ -20,18 +20,21 @@ class WildAnimals extends AnimalBehaviour{
     }
 }
 
+class Animal{
+    public void poly(AnimalBehaviour ab){
+        // ab.herbivorous();
+        ab.carnivourous();
+        ab.omnivourous();
+        System.out.println("*****************************************");
+    }
+}
+
 public class Runtime{
     public static void main(String[] args){
         Domestic dm = new Domestic();
-        AnimalBehaviour ab; //Parent class reference
-        ab = dm;
-        ab.herbivorous();
-        ab.omnivourous();
-        System.out.println("**************************************************");
         WildAnimals wa = new WildAnimals();
-        ab = wa;// single ref many forms polymorphism
-        ab.carnivourous();
-        ab.herbivorous();
-
+        Animal a = new Animal();
+        a.poly(dm);
+        a.poly(wa);
     }
 }
